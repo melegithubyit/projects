@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Administrator,MATI.MX </title>
+    <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <main class="container">
+    <div class="row">
+      <div class="col-7">
+        <h2 class="text-center">Add Movie</h2>
+        <form id="movieForm" onsubmit="add('movies'); return false">
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" id="description">
+          </div>
+          <div class="mb-3">
+            <label for="rating" class="form-label">IMDb Rating</label>
+            <input type="number" step="0.01" class="form-control" id="rating">
+          </div>
+          <div class="mb-3">
+            <label for="date" class="form-label">Release-Date</label>
+            <input type="date" class="form-control" id="date">
+          </div>
+          <div class="mb-3">
+            <label for="image" class="form-label">Poster Path</label>
+            <input type="text" class="form-control" id="image">
+          </div>
+          <div class="error mb-3 alert-danger text-center"></div>
+          <button type="submit" class="btn btn-primary">Add Movie</button>
+        </form>
+      </div>
+      <div class="col-5">
+        <h2 class="text-center">Edit Movie</h2>
+        <form id="editMovieForm" onsubmit="editMovie('movies', erating); return false">
+          <div class="mb-3">
+            <label for="eID" class="form-label">Movie ID</label>
+            <input type="number" class="form-control" id="eID" required aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="edescription" class="form-label">Description</label>
+            <input type="text" class="form-control" disabled id="edescription">
+          </div>
+          <div class="mb-3">
+            <label for="erating" class="form-label">IMDb Rating</label>
+            <input type="number" step="0.01" min="0" max="10" class="form-control" required id="erating">
+          </div>
+          <div class="mb-3">
+            <label for="edate" class="form-label">Release-Date</label>
+            <input type="date" class="form-control" disabled id="edate">
+          </div>
+          <div class="mb-3">
+            <label for="eimage" class="form-label">Poster Path</label>
+            <input type="text" class="form-control" disabled id="eimage">
+          </div>
+          <div class="errorTwo mb-3 alert-danger text-center"></div>
+          <button type="submit" class="btn btn-primary">Edit Movie</button>
+        </form>
+      </div>
+      <div class="row mt-3">
+        <div class="col-6 movies">
+          <h2 class="text-center">Movies</h2>
+        </div>
+        <div class="col-6 users">
+          <h2 class="text-center">Users</h2>
+        </div>
+      </div>
+      <div class="row mt-3 mb-3">
+        <div class="comments">
+          <h2 class="">Comments</h2>
+        </div>
+      </div>
+      <div class="row mt-3 ">
+        <div class="col-7">
+          <h2 class="text-center">Add Recent Movie</h2>
+          <form id="recentMovieForm" onsubmit="add('recently-added'); return false">
+            <div class="mb-3">
+              <label for="recenttitle" class="form-label">Title</label>
+              <input type="text" class="form-control" id="recenttitle" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="recentdescription" class="form-label">Description</label>
+              <input type="text" class="form-control" id="recentdescription">
+            </div>
+            <div class="mb-3">
+              <label for="recentrating" class="form-label">IMDb Rating</label>
+              <input type="number" step="0.01" class="form-control" id="recentrating">
+            </div>
+            <div class="mb-3">
+              <label for="recentdate" class="form-label">Release-Date</label>
+              <input type="date" class="form-control" id="recentdate">
+            </div>
+            <div class="mb-3">
+              <label for="recentimage" class="form-label">Poster Path</label>
+              <input type="text" class="form-control" id="recentimage">
+            </div>
+            <div class="error mb-3 alert-danger text-center"></div>
+            <button type="submit" class="btn btn-primary">Add Movie</button>
+          </form>
+        </div>
+        <div class="col-5">
+          <h2 class="text-center">Edit Recent Movie</h2>
+          <form id="editRecentMovieForm" onsubmit="editMovie('recently-added', eRecentRating); return false">
+            <div class="mb-3">
+              <label for="editrecenttitle" class="form-label">Movie ID</label>
+              <input type="number" class="form-control" id="editrecenttitle" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="editrecentdescription" class="form-label">Description</label>
+              <input type="text" class="form-control" id="editrecentdescription" disabled>
+            </div>
+            <div class="mb-3">
+              <label for="editrecentrating" class="form-label">IMDb Rating</label>
+              <input type="number" step="0.01" class="form-control" id="editrecentrating">
+            </div>
+            <div class="mb-3">
+              <label for="editrecentdate" class="form-label">Release-Date</label>
+              <input type="date" class="form-control" id="editrecentdate" disabled>
+            </div>
+            <div class="mb-3">
+              <label for="editrecentimage" class="form-label">Poster Path</label>
+              <input type="text" class="form-control" id="editrecentimage" disabled>
+            </div>
+            <div class="error mb-3 alert-danger text-center"></div>
+            <button type="submit" class="btn btn-primary">Update Recent</button>
+          </form>
+        </div>
+        <div class="row mt-3 mb-3">
+          <div class="col-6 recentmovies">
+            <h2 class="text-center">Recent Movies</h2>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn btn-primary mb-3" onclick="logout()" >Logout</button>
+    </div>
+
+  </main>
+<script src="./js/admin.js">
+</script>
+</body>
+</html>
